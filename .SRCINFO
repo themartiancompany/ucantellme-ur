@@ -1,0 +1,18 @@
+pkgbase = ucantellme
+	pkgdesc = Passphrase prompter.
+	pkgver = 0.0.0.0.0.0.0.0.0.0.0.0.0.1
+	pkgrel = 1
+	url = https://github.com/themartiancompany/ucantellme
+	arch = any
+	license = AGPL3
+	checkdepends = shellcheck
+	makedepends = make
+	depends = bash
+	depends = libcrash-bash
+	optdepends = zenity: graphical prompt
+	optdepends = systemd-ask-password: theres no real reason huge chunks of systemd should not be cross-platform
+	source = ucantellme-c69c1e46b77c876a48cd20d2d0ccc1af8ad44dfd.zip::https://github.com/themartiancompany/ucantellme/archive/c69c1e46b77c876a48cd20d2d0ccc1af8ad44dfd.zip
+	validpgpkeys = 97E989E6CF1D2C7F7A41FF9F95684DBE23D6A3E9
+	sha256sums = fe7dbded528bcfc452021bc2d8f909218ff47cfc2cc31a626446be16f58e5e58
+
+pkgname = ucantellme
