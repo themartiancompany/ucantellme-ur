@@ -56,9 +56,21 @@ if [[ "${_git_http}" == "github" ]]; then
 elif [[ "${_git_http}" == "gitlab" ]]; then
   _archive_format="tar.gz"
 fi
-pkgname=ucantellme
+if [[ ! -v "_docs" ]]; then
+  _docs="true"
+fi
+_pkg=ucantellme
+pkgbase="${_pkg}"
+pkgname=(
+  "${_pkg}"
+)
+if [[ "${_docs}]" == "true" ]]; then
+  pkgname+=(
+    "${_pkg}-docs"
+  )
+fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
-_commit="c69c1e46b77c876a48cd20d2d0ccc1af8ad44dfd"
+_commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
 pkgrel=1
 _pkgdesc=(
   "Passphrase prompter."
@@ -77,23 +89,31 @@ depends=(
   "bash"
   "libcrash-bash"
 )
-_os="$( \
-  uname \
-    -o)"
-[[ "${_os}" != "GNU/Linux" ]] && \
-[[ "${_os}" == "Android" ]] && \
+if [[ "${_os}" != "GNU/Linux" ]] && \
+   [[ "${_os}" == "Android" ]]; then
   depends+=(
   )
-optdepends=(
-  'zenity: graphical prompt'
-  "systemd-ask-password: theres no real reason huge chunks of systemd should not be cross-platform"
+fi
+_zenity_optdepends=(
+  "zenity:"
+    "simple graphical prompt support"
 )
-[[ "${_os}" == "GNU/Linux" ]] && \
-[[ "${_os}" != "Android" ]] && \
+_systemd_ask_password_optdepends=(
+  "systemd-ask-password:"
+    "theres no real reason huge chunks of systemd"
+    "should not be cross-platform."
+)
+optdepends=(
+  "${_zenity_optdepends[*]}"
+  "${_systemd_ask_password_optdepends[*]}"
+)
+if [[ "${_os}" == "GNU/Linux" ]] && \
+   [[ "${_os}" != "Android" ]]; then
   optdepends+=(
   )
+fi
 makedepends=(
-  make
+  "make"
 )
 checkdepends=(
   "shellcheck"
@@ -168,22 +188,58 @@ validpgpkeys=(
   '12D8E3D7888F741E89F86EE0FEC8567A644F1D16'
 )
 
-
 check() {
+  local \
+    _make_opts=()
+  _make_opts+=(
+    -k
+  )
   cd \
     "${_tarname}"
   make \
-    -k \
+    "${_make_opts[@]}" \
     check
 }
 
-package() {
+package_ucantellme() {
+  local \
+    _make_opts=()
+  _make_opts+=(
+    PREFIX="/usr"
+    DESTDIR="${pkgdir}"
+  )
   cd \
     "${_tarname}"
   make \
-    PREFIX="/usr" \
-    DESTDIR="${pkgdir}" \
-    install
+    "${_make_opts[@]}" \
+    install-scripts
+  install \
+    -Dm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
+}
+
+package_evm-contracts-tools-docs() {
+  local \
+    _make_opts=()
+  _make_opts+=(
+    PREFIX="/usr"
+    DESTDIR="${pkgdir}"
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install-doc
+  make \
+    "${_make_opts[@]}" \
+    install-man
+  install \
+    -Dm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
 # vim: ft=sh syn=sh et
