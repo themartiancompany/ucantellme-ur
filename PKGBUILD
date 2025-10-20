@@ -104,8 +104,8 @@ _url="${url}"
 _tag="${_commit}"
 _tag_name="commit"
 _tarname="${pkgname}-${_tag}"
-_sum="4862131058a9646e54439f98ea21de28ebb71bd8faaf94e8d2aa6b24f8d126f1"
-_sig_sum="e6a9261dffaee17f84eb50eb1be762c324fc22d3bbb9b4a26da3f27e83300d3b"
+_sum="6b70dd2f6c347d448c2d6140fdb70429d17135e6713ea6c095df1b34e4010e6a"
+_sig_sum="1cc2f9706223cde99fb5f1c1a857ce5ffcc4db660f915d34f356f321252ef6fd"
 _github_sum='6a25e561ab17fb2d854e198433bac03532018560428e78c0f802604960561926'
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
@@ -187,5 +187,3 @@ package() {
 }
 
 # vim: ft=sh syn=sh et
-6b70dd2f6c347d448c2d6140fdb70429d17135e6713ea6c095df1b34e4010e6a  ucantellme-cf98fb7d48cc3145c5c9b827f6eebbd6679b1674.tar.gz
-1cc2f9706223cde99fb5f1c1a857ce5ffcc4db660f915d34f356f321252ef6fd  ucantellme-cf98fb7d48cc3145c5c9b827f6eebbd6679b1674.tar.gz.sig
