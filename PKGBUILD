@@ -71,7 +71,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
 _commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
-pkgrel=9
+pkgrel=10
 _pkgdesc=(
   "Passphrase prompter."
 )
@@ -216,7 +216,7 @@ package_ucantellme() {
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-package_evm-contracts-tools-docs() {
+package_ucantellme-docs() {
   local \
     _make_opts=()
   _make_opts+=(
