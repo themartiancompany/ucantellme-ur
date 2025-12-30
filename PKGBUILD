@@ -60,6 +60,7 @@ fi
 if [[ ! -v "_docs" ]]; then
   _docs="true"
 fi
+_py="python"
 _pkg=ucantellme
 pkgbase="${_pkg}"
 pkgname=(
