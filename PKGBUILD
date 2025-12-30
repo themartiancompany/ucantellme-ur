@@ -48,12 +48,12 @@ fi
 if [[ ! -v "_offline" ]]; then
   _offline="false"
 fi
-if [[ ! -v "_git_http" ]]; then
-  _git_http="gitlab"
+if [[ ! -v "_git_service" ]]; then
+  _git_service="gitlab"
 fi
-if [[ "${_git_http}" == "github" ]]; then
+if [[ "${_git_service}" == "github" ]]; then
   _archive_format="zip"
-elif [[ "${_git_http}" == "gitlab" ]]; then
+elif [[ "${_git_service}" == "gitlab" ]]; then
   _archive_format="tar.gz"
 fi
 if [[ ! -v "_docs" ]]; then
