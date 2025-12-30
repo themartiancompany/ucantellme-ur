@@ -69,8 +69,8 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-docs"
   )
 fi
-pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
-_commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
+pkgver="0.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1"
+_commit="012f0bba3ffa4efe65f1b916fa04c932f61d929d"
 pkgrel=10
 _pkgdesc=(
   "Passphrase prompter."
@@ -125,8 +125,8 @@ _tag="${_commit}"
 _tag_name="commit"
 _tarname="${pkgname}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
-_sum="fb0c1c8cd66760e4c3fd50bf19f3f0b6da8911e3bc8042c8adadf9332639feff"
-_sig_sum="4fc41eeb4481b3df9388d637a3c7983609ebfadd7d262066e8cf9536c227ac5c"
+_sum="9c7bc433b56c1b16fd1fee313017fd3fc287a071b501f9807cdfe8e3a8f207c8"
+_sig_sum="e12f506de178e8b01d44d1c10790be1f32c333b9c7b29525f3869c94e2004ee8"
 _github_sum='6a25e561ab17fb2d854e198433bac03532018560428e78c0f802604960561926'
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
