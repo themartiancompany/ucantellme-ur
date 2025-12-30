@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0
 
+
 #    ----------------------------------------------------------------------
 #    Copyright © 2024, 2025  Pellegrino Prevete
 #
@@ -71,7 +72,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1"
 _commit="012f0bba3ffa4efe65f1b916fa04c932f61d929d"
-pkgrel=1
+pkgrel=2
 _pkgdesc=(
   "Passphrase prompter."
 )
