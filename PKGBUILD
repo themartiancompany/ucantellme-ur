@@ -64,14 +64,14 @@ pkgbase="${_pkg}"
 pkgname=(
   "${_pkg}"
 )
-if [[ "${_docs}]" == "true" ]]; then
+if [[ "${_docs}" == "true" ]]; then
   pkgname+=(
     "${_pkg}-docs"
   )
 fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
 _commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
-pkgrel=8
+pkgrel=9
 _pkgdesc=(
   "Passphrase prompter."
 )
