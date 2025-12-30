@@ -71,7 +71,7 @@ if [[ "${_docs}]" == "true" ]]; then
 fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
 _commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
-pkgrel=7
+pkgrel=8
 _pkgdesc=(
   "Passphrase prompter."
 )
@@ -124,6 +124,7 @@ _url="${url}"
 _tag="${_commit}"
 _tag_name="commit"
 _tarname="${pkgname}-${_tag}"
+_tarfile="${_tarname}.${_archive_format}"
 _sum="fb0c1c8cd66760e4c3fd50bf19f3f0b6da8911e3bc8042c8adadf9332639feff"
 _sig_sum="4fc41eeb4481b3df9388d637a3c7983609ebfadd7d262066e8cf9536c227ac5c"
 _github_sum='6a25e561ab17fb2d854e198433bac03532018560428e78c0f802604960561926'
