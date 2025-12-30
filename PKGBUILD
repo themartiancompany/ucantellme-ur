@@ -71,7 +71,7 @@ if [[ "${_docs}]" == "true" ]]; then
 fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
 _commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
-pkgrel=6
+pkgrel=7
 _pkgdesc=(
   "Passphrase prompter."
 )
