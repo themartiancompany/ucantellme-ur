@@ -202,6 +202,7 @@ package_ucantellme() {
     PREFIX="/usr"
     DESTDIR="${pkgdir}"
   )
+  ls
   cd \
     "${_tarname}"
   make \
