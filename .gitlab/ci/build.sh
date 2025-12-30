@@ -179,9 +179,9 @@ _requirements() {
     "${ns}" \
     "${_pkgname}" \
     "${_commit}"
-  # cp \
-  #   "${HOME}/${_pkgname}-${_commit}.tar.gz" \
-  #   "/home/user/${_pkgname}"
+  cp \
+    "${HOME}/${_pkgname}-${_commit}.tar.gz" \
+    "/home/user/${_pkgname}"
 }
 
 _build() {
@@ -360,7 +360,7 @@ _gl_dl_retrieve() {
       "${_msg[*]}"
     _msg=(
       "Set the 'GL_DL_PRIVATE_TOKEN'"
-      "variable in your Gitlab.com" \
+      "variable in your Gitlab.com"
       "CI namespace or repository configuration."
     )
     echo \

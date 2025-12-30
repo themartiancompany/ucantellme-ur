@@ -71,7 +71,7 @@ if [[ "${_docs}]" == "true" ]]; then
 fi
 pkgver=0.0.0.0.0.0.0.0.0.0.0.0.0.1.1
 _commit="cf98fb7d48cc3145c5c9b827f6eebbd6679b1674"
-pkgrel=4
+pkgrel=5
 _pkgdesc=(
   "Passphrase prompter."
 )
@@ -137,38 +137,32 @@ _sig_src="${_tarname}.${_archive_format}.sig::${_sig_uri}"
 source=()
 sha256sums=()
 if [[ "${_evmfs}" == "true" ]]; then
-  makedepends+=(
-    "evmfs"
-  )
-  _src="${_evmfs_src}"
-  source+=(
-    "${_sig_src}"
-  )
-  sha256sums+=(
-    "${_sig_sum}"
-  )
+  if [[ "${_git}" == "false" ]]; then
+    _src="${_evmfs_src}"
+    source+=(
+      "${_sig_src}"
+    )
+    sha256sums+=(
+      "${_sig_sum}"
+    )
+  fi
 elif [[ "${_evmfs}" == "false" ]]; then
   if [[ "${_git}" == true ]]; then
-    makedepends+=(
-      "git"
-    )
     _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
     _sum="SKIP"
   elif [[ "${_git}" == false ]]; then
     _uri=""
-    if [[ "${_git_http}" == "github" ]]; then
+    if [[ "${_git_service}" == "github" ]]; then
       if [[ "${_tag_name}" == "commit" ]]; then
         _uri="${_url}/archive/${_commit}.${_archive_format}"
         _sum="${_github_sum}"
       fi
-    elif [[ "${_git_http}" == "github" ]]; then
-      if [[ "${_tag_name}" == 'pkgver' ]]; then
-        _uri="${_url}/archive/refs/tags/${_tag}.${_archive_format}"
-      elif [[ "${_tag_name}" == "commit" ]]; then
+    elif [[ "${_git_service}" == "gitlab" ]]; then
+      if [[ "${_tag_name}" == "commit" ]]; then
         _uri="${_url}/-/archive/${_tag}/${_tag}.${_archive_format}"
       fi
     fi
-    _src="${_tarname}.${_archive_format}::${_uri}"
+    _src="${_tarfile}::${_uri}"
   fi
 fi
 source+=(
