@@ -242,6 +242,9 @@ package_ucantellme-docs() {
   )
   cd \
     "${_tarname}"
+  install \
+    -vdm755 \
+    "${pkgdir}/usr/share/man/man1"
   make \
     "${_make_opts[@]}" \
     install-doc
