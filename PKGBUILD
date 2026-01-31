@@ -82,7 +82,9 @@ arch=(
   any
 )
 _http="https://github.com"
-_ns="themartiancompany"
+if [[ ! -v "_ns" ]]; then
+  _ns="themartiancompany"
+fi
 url="${_http}/${_ns}/${pkgname}"
 license=(
   AGPL3
