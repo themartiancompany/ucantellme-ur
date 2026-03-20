@@ -73,7 +73,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1"
 _commit="012f0bba3ffa4efe65f1b916fa04c932f61d929d"
-pkgrel=4
+pkgrel=5
 _pkgdesc=(
   "Passphrase prompter."
 )
@@ -144,10 +144,21 @@ _tag="${_commit}"
 _tag_name="commit"
 _tarname="${pkgname}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
-_sum="9c7bc433b56c1b16fd1fee313017fd3fc287a071b501f9807cdfe8e3a8f207c8"
-_sig_sum="e12f506de178e8b01d44d1c10790be1f32c333b9c7b29525f3869c94e2004ee8"
-_github_sum='6a25e561ab17fb2d854e198433bac03532018560428e78c0f802604960561926'
-_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
+_gitlab_sum="9c7bc433b56c1b16fd1fee313017fd3fc287a071b501f9807cdfe8e3a8f207c8"
+_gitlab_sig_sum="e12f506de178e8b01d44d1c10790be1f32c333b9c7b29525f3869c94e2004ee8"
+_github_sum="214d4a4e2fefe02c2be357cc97ddb536a5249a9920f944a81b7b2e28630cacf7"
+_github_sig_sum="17c8626f9b27400b295bc1c1915b51a48780050422b6607339bf68ae73f0333e"
+if [[ "${_git_service}" == "gitlab" ]]; then
+  _sum="${_gitlab_sum}"
+  _sig_sum="${_gitlab_sig_sum}"
+  # Dvorak
+  _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
+elif [[ "${_git_service}" == "github" ]]; then
+  _sum="${_github_sum}"
+  _sig_sum="${_github_sig_sum}"
+  # Truocolo
+  _evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
+fi
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_sum}"
